@@ -1,0 +1,61 @@
+# VibeMemo - Xcode / Swift
+# Reference: https://github.com/github/gitignore/blob/main/Swift.gitignore
+
+## Xcode
+build/
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata/
+*.xccheckout
+*.moved-aside
+DerivedData/
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+## Playgrounds
+timeline.xctimeline
+playground.xcworkspace
+
+## Swift Package Manager
+.build/
+Packages/
+Package.pins
+Package.resolved
+*.xcodeproj
+
+## CocoaPods
+Pods/
+*.xcworkspace
+
+## Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output
+
+## OS Files
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+## IDE
+.idea/
+*.swp
+*~.nib
+
+## Secrets - NEVER commit these
+*.env
+.env.*
+secrets/
+api-keys/
