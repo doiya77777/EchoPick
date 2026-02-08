@@ -1,4 +1,17 @@
-name: VibeMemo
+name: EchoPick
+schemes:
+  EchoPick:
+    build:
+      targets:
+        EchoPick: all
+        EchoPickTests: [test]
+    test:
+      targets:
+        - EchoPickTests
+      environmentVariables:
+        - variable: OPENAI_API_KEY
+          value: ""
+          isEnabled: false
 options:
   bundleIdPrefix: com.doiya
   deploymentTarget:
@@ -6,35 +19,36 @@ options:
   xcodeVersion: "15.0"
   generateEmptyDirectories: true
   groupSortPosition: top
-  
+
 settings:
   base:
     SWIFT_VERSION: "6.0"
     MARKETING_VERSION: "1.0.0"
     CURRENT_PROJECT_VERSION: "1"
-    DEVELOPMENT_TEAM: ""
+    DEVELOPMENT_TEAM: "ZLX96NXN3W"
     CODE_SIGN_STYLE: Automatic
     ENABLE_USER_SCRIPT_SANDBOXING: "YES"
-    
+
 targets:
-  VibeMemo:
+  EchoPick:
     type: application
     platform: iOS
     deploymentTarget: "17.0"
     sources:
-      - path: VibeMemo
+      - path: EchoPick
         type: group
+        excludes:
+          - "Tests/**"
     settings:
       base:
-        INFOPLIST_FILE: VibeMemo/Info.plist
-        PRODUCT_BUNDLE_IDENTIFIER: com.doiya.vibememo
+        INFOPLIST_FILE: EchoPick/Info.plist
+        PRODUCT_BUNDLE_IDENTIFIER: com.doiya.echopick
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
-        SWIFT_STRICT_CONCURRENCY: complete
     info:
-      path: VibeMemo/Info.plist
+      path: EchoPick/Info.plist
       properties:
-        CFBundleDisplayName: VibeMemo
-        CFBundleName: VibeMemo
+        CFBundleDisplayName: 拾响
+        CFBundleName: EchoPick
         CFBundleShortVersionString: "1.0.0"
         CFBundleVersion: "1"
         UILaunchScreen:
@@ -48,14 +62,30 @@ targets:
           - UIInterfaceOrientationPortraitUpsideDown
           - UIInterfaceOrientationLandscapeLeft
           - UIInterfaceOrientationLandscapeRight
-        NSMicrophoneUsageDescription: "VibeMemo 需要访问麦克风来录制语音笔记和对话"
-        NSFaceIDUsageDescription: "VibeMemo 使用 Face ID 保护你的隐私数据"
-        NSSpeechRecognitionUsageDescription: "VibeMemo 使用语音识别将你的录音转换为文字"
+        UIBackgroundModes:
+          - audio
+        NSMicrophoneUsageDescription: "拾响需要访问麦克风来录制对话和语音笔记"
+        NSFaceIDUsageDescription: "拾响使用 Face ID 保护你的隐私数据"
+        NSSpeechRecognitionUsageDescription: "拾响使用语音识别将录音转换为文字"
         ITSAppUsesNonExemptEncryption: false
     entitlements:
-      path: VibeMemo/VibeMemo.entitlements
+      path: EchoPick/EchoPick.entitlements
       properties:
-        com.apple.security.application-groups:
-          - group.com.doiya.vibememo
         keychain-access-groups:
-          - $(AppIdentifierPrefix)com.doiya.vibememo
+          - $(AppIdentifierPrefix)com.doiya.echopick
+
+  EchoPickTests:
+    type: bundle.unit-test
+    platform: iOS
+    deploymentTarget: "17.0"
+    sources:
+      - path: EchoPick/Tests
+        type: group
+        excludes:
+          - "Resources/**"
+    dependencies:
+      - target: EchoPick
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: "YES"
+        SWIFT_VERSION: "6.0"

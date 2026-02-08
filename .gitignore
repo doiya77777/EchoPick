@@ -1,8 +1,9 @@
-# VibeMemo - Xcode / Swift
+# EchoPick - Xcode / Swift
 # Reference: https://github.com/github/gitignore/blob/main/Swift.gitignore
 
 ## Xcode
 build/
+build-device/
 *.pbxuser
 !default.pbxuser
 *.mode1v3
@@ -59,3 +60,7 @@ fastlane/test_output
 .env.*
 secrets/
 api-keys/
+
+## Agent / AI tooling
+.agent/
+.gemini/

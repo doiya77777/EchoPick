@@ -1,65 +1,55 @@
-# 🧠 VibeMemo
+# EchoPick 拾响
 
-> 随时随地记录灵感，捕捉与朋友的对话。AI 驱动，隐私优先。
+> 语音笔记，放口袋里就行。
 
-<p align="center">
-  <img src="docs/icon.png" width="128" alt="VibeMemo Icon" />
-</p>
+**原始文本是资产（Echo），离散数据是索引（Pick）。**
 
-## ✨ 特点
+## 核心功能
 
-- 📝 **快速笔记** — 随手记录想法，支持标签和情感标注
-- 🎙️ **语音录制** — 一键录音，AI 自动转为文字（OpenAI Whisper）
-- 💬 **对话记录** — 记录与朋友的对话，AI 生成摘要
-- 🔒 **隐私保护** — Face ID 锁定 + AES-256 加密 + 本地优先存储
-- 🤖 **AI 智能** — 自动摘要、情感分析、关键词提取
+- **无感录音** — 一键开始，后台静默录制，每 5 分钟自动分段
+- **流式转录** — 火山引擎 Seed ASR 实时语音识别
+- **源数据优先** — 音频文件 + 完整文本随时回放、复制
+- **AI 辅助分析** — Seed LLM 自动提取话题、数据、待办（折叠展示，不喧宾夺主）
+- **溯源交互** — 点击 Pick 卡片，原文高亮并滚动定位
 
-## 🛠️ 技术栈
+## 隐私
 
-- **Framework**: SwiftUI + SwiftData
-- **Language**: Swift 6
-- **AI Service**: OpenAI API (Whisper + GPT-4o)
-- **Security**: CryptoKit (AES-256-GCM) + Keychain
-- **Auth**: LocalAuthentication (Face ID / Touch ID)
-- **Minimum**: iOS 17.0+
+- 纯本地存储（SwiftData）+ iCloud 同步
+- API Key 存 Keychain
+- Face ID 应用锁
+- 无自建后端
 
-## 🚀 开始使用
+## 技术栈
 
-### 前提条件
-- Xcode 15.0+
-- iOS 17.0+ 设备或模拟器
-- OpenAI API Key（用于 AI 功能）
+| 层级 | 技术 |
+|------|------|
+| UI | SwiftUI · MVVM · iOS 17+ |
+| 持久化 | SwiftData + iCloud |
+| 语音识别 | 火山引擎 Seed ASR 2.0（WebSocket 流式） |
+| 智能提取 | 火山引擎 Seed LLM（JSON Mode） |
+| 安全 | Keychain + LocalAuthentication |
+| 项目管理 | XcodeGen |
 
-### 运行项目
-1. 克隆仓库
-2. 在 Xcode 中打开 `VibeMemo.xcodeproj`
-3. 选择目标设备，点击运行
-4. 在应用设置中输入你的 OpenAI API Key
+## 快速开始
 
-## 📋 项目结构
+```bash
+# 生成 Xcode 项目
+xcodegen generate
 
-```
-VibeMemo/
-├── App/            # 应用入口和主导航
-├── Core/           # 核心模块
-│   ├── Models/     # 数据模型 (SwiftData)
-│   ├── Services/   # 核心服务 (AI, Audio, Crypto)
-│   └── Extensions/ # Swift 扩展
-├── Features/       # 功能模块
-│   ├── Notes/      # 笔记功能
-│   ├── Recording/  # 录音功能
-│   ├── Conversations/ # 对话记录
-│   └── Settings/   # 设置
-└── Resources/      # 资源文件
+# 构建（真机）
+xcodebuild -project EchoPick.xcodeproj -scheme EchoPick \
+  -sdk iphoneos -destination 'generic/platform=iOS' \
+  -configuration Release -allowProvisioningUpdates \
+  CONFIGURATION_BUILD_DIR=build-device build
+
+# 安装
+xcrun devicectl device install app --device <DEVICE_ID> build-device/EchoPick.app
 ```
 
-## 🔐 隐私设计
+## 文档
 
-- 所有数据加密存储在设备本地
-- AI 处理使用 OpenAI API（数据不用于训练）
-- Face ID / Touch ID 应用锁
-- API Key 存储在 Keychain
+- **[DEVELOPMENT.md](DEVELOPMENT.md)** — 架构设计、功能开发、UI/UX 规范、测试策略、真机部署
 
-## 📄 License
+## License
 
-MIT License © 2026 doiya
+MIT © 2026 doiya
