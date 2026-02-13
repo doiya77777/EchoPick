@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>EchoPick Support</title>
+    <meta name="description" content="EchoPick technical support and contact information." />
+    <style>
+      :root {
+        --bg0: #f4fbff;
+        --bg1: #e9f7ff;
+        --bg2: #fff4e8;
+        --card: #ffffffcc;
+        --text: #0e2433;
+        --muted: #4d6270;
+        --accent: #006d77;
+        --accent-2: #f4a261;
+        --line: #d9e7ee;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: "Avenir Next", "SF Pro Text", "PingFang SC", "Helvetica Neue", sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(1000px 420px at -10% -20%, #d3f0ff 0%, transparent 60%),
+          radial-gradient(900px 400px at 110% -10%, #ffe8cc 0%, transparent 58%),
+          linear-gradient(160deg, var(--bg0), var(--bg1) 45%, var(--bg2));
+        min-height: 100vh;
+      }
+      .wrap {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 56px 20px;
+      }
+      .card {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        backdrop-filter: blur(4px);
+        box-shadow: 0 12px 36px rgba(14, 36, 51, 0.08);
+        overflow: hidden;
+      }
+      .hero {
+        padding: 28px 28px 18px;
+        background: linear-gradient(135deg, #ffffff, #f7fdff);
+        border-bottom: 1px solid var(--line);
+      }
+      .badge {
+        display: inline-block;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: #ebf7f8;
+        color: var(--accent);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+      }
+      h1 {
+        margin: 12px 0 6px;
+        font-size: clamp(28px, 5vw, 42px);
+        line-height: 1.1;
+      }
+      .sub {
+        margin: 0;
+        color: var(--muted);
+        font-size: 16px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+        padding: 20px;
+      }
+      .item {
+        padding: 16px;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: #fff;
+      }
+      .k {
+        margin: 0 0 6px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .v {
+        margin: 0;
+        font-size: 16px;
+        font-weight: 600;
+      }
+      a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+      a:hover { text-decoration: underline; }
+      .foot {
+        padding: 0 20px 20px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 0 20px 20px;
+      }
+      .btn {
+        display: inline-block;
+        padding: 10px 14px;
+        border-radius: 10px;
+        border: 1px solid var(--line);
+        background: #fff;
+        font-weight: 600;
+      }
+      .btn.primary {
+        border-color: transparent;
+        background: linear-gradient(135deg, var(--accent), #008c99);
+        color: #fff;
+      }
+      @media (max-width: 720px) {
+        .wrap { padding-top: 28px; }
+        .grid { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <section class="card">
+        <header class="hero">
+          <span class="badge">ECHO PICK SUPPORT</span>
+          <h1>Technical Support</h1>
+          <p class="sub">Need help with EchoPick? Contact us and we will reply as soon as possible.</p>
+        </header>
+
+        <section class="grid">
+          <article class="item">
+            <p class="k">App</p>
+            <p class="v">EchoPick (拾响)</p>
+          </article>
+          <article class="item">
+            <p class="k">Support Email</p>
+            <p class="v"><a href="mailto:doiya.help@gmail.com">doiya.help@gmail.com</a></p>
+          </article>
+          <article class="item">
+            <p class="k">Response Time</p>
+            <p class="v">Within 48 business hours</p>
+          </article>
+          <article class="item">
+            <p class="k">Languages</p>
+            <p class="v">English / 简体中文</p>
+          </article>
+        </section>
+
+        <div class="actions">
+          <a class="btn primary" href="mailto:doiya.help@gmail.com?subject=EchoPick%20Support">Contact Support</a>
+          <a class="btn" href="../privacy/">Privacy Policy</a>
+        </div>
+
+        <p class="foot">Copyright © 2026 HAITONG LI. All rights reserved.</p>
+      </section>
+    </main>
+  </body>
+</html>
